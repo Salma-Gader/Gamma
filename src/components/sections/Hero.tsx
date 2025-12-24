@@ -55,8 +55,8 @@ export default function Hero() {
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/65 to-black" />
       </div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(106,200,255,0.25),transparent_30%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(212,178,108,0.25),transparent_25%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.18),transparent_30%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.12),transparent_25%)]" />
       <div className="absolute inset-0 grain pointer-events-none" />
 
       <div className="w-full max-w-5xl ml-0 lg:ml-auto px-4 sm:px-6 lg:px-12 pt-24 pb-14 md:pt-28 relative z-10">
@@ -71,7 +71,7 @@ export default function Hero() {
             >
               Grow online sales
               <br />
-              <span className="text-amber-300 drop-shadow-[0_8px_30px_rgba(212,178,108,0.35)]">
+              <span className="text-white drop-shadow-[0_8px_30px_rgba(255,255,255,0.28)]">
                 Scale your business by 500%+
               </span>
             </motion.h1>
@@ -95,7 +95,7 @@ export default function Hero() {
               href="#services"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.96 }}
-              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#d4b26c] via-[#e4c883] to-[#f5e2a8] text-black font-semibold uppercase tracking-[0.12em] rounded-md shadow-[0_15px_45px_rgba(212,178,108,0.35)] w-full sm:w-auto"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-white via-gray-100 to-gray-300 text-black font-semibold uppercase tracking-[0.12em] rounded-md shadow-[0_15px_45px_rgba(255,255,255,0.18)] w-full sm:w-auto"
             >
               Our services
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -111,7 +111,7 @@ export default function Hero() {
           </motion.div>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 pt-6">
-            <div className="h-px w-20 sm:w-16 bg-gradient-to-r from-amber-300 to-transparent" />
+            <div className="h-px w-20 sm:w-16 bg-gradient-to-r from-white to-transparent" />
             <div className="flex flex-wrap justify-center sm:justify-start gap-3 text-[11px] sm:text-xs uppercase tracking-[0.2em] text-gray-300">
               <span>Google Ads</span>
               <span>SEO</span>

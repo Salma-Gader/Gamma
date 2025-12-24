@@ -47,7 +47,7 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-amber-300 mb-3">Contact us</p>
+          <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-gray-100 mb-3">Contact us</p>
           <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-4">Send a quote request</h2>
           <p className="text-base sm:text-xl text-gray-300 max-w-3xl mx-auto">
             Tell us about your goals—traffic, revenue, or retention. We’ll scope the funnel, channels, and creative to get you there.
@@ -71,7 +71,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
-                  className="w-full px-4 py-3 border border-white/15 bg-white/5 text-white rounded-lg focus:ring-2 focus:ring-amber-300 focus:border-transparent outline-none transition-all"
+                  className="w-full px-4 py-3 border border-white/15 bg-white/5 text-white rounded-lg focus:ring-2 focus:ring-white focus:border-transparent outline-none transition-all"
                   placeholder="Your name"
                 />
               </div>
@@ -86,7 +86,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
-                  className="w-full px-4 py-3 border border-white/15 bg-white/5 text-white rounded-lg focus:ring-2 focus:ring-amber-300 focus:border-transparent outline-none transition-all"
+                  className="w-full px-4 py-3 border border-white/15 bg-white/5 text-white rounded-lg focus:ring-2 focus:ring-white focus:border-transparent outline-none transition-all"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -103,7 +103,7 @@ export default function Contact() {
                   }
                   required
                   rows={6}
-                  className="w-full px-4 py-3 border border-white/15 bg-white/5 text-white rounded-lg focus:ring-2 focus:ring-amber-300 focus:border-transparent outline-none transition-all resize-none"
+                  className="w-full px-4 py-3 border border-white/15 bg-white/5 text-white rounded-lg focus:ring-2 focus:ring-white focus:border-transparent outline-none transition-all resize-none"
                   placeholder="Your message"
                 />
               </div>
@@ -112,7 +112,7 @@ export default function Contact() {
                 type="submit"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full px-8 py-4 bg-gradient-to-r from-[#d4b26c] to-[#f1dd9c] text-black font-semibold rounded-lg shadow-[0_12px_35px_rgba(212,178,108,0.35)] transition-shadow flex items-center justify-center"
+                className="w-full px-8 py-4 bg-gradient-to-r from-white to-gray-300 text-black font-semibold rounded-lg shadow-[0_12px_35px_rgba(255,255,255,0.18)] transition-shadow flex items-center justify-center"
               >
                 Send message
                 <Send className="ml-2 w-5 h-5" />
@@ -138,9 +138,9 @@ export default function Contact() {
                   transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
                   className="flex items-start space-x-4"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-r from-[#d4b26c] to-[#f1dd9c] rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-6 h-6 text-black" />
-                  </div>
+                <div className="w-12 h-12 bg-gradient-to-r from-white to-gray-200 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Icon className="w-6 h-6 text-black" />
+                </div>
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-1">
                       {info.label}

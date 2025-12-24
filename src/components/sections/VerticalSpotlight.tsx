@@ -27,7 +27,7 @@ export default function VerticalSpotlight() {
             <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/70" />
-          <div className="absolute top-4 left-4 px-3 py-1 text-xs uppercase tracking-[0.2em] bg-white/10 border border-white/20 rounded-full text-amber-200">
+          <div className="absolute top-4 left-4 px-3 py-1 text-xs uppercase tracking-[0.2em] bg-white/10 border border-white/20 rounded-full text-white">
             Vertical reel
           </div>
         </motion.div>
@@ -38,29 +38,29 @@ export default function VerticalSpotlight() {
           transition={{ duration: 0.8, delay: 0.15 }}
           className="space-y-6"
         >
-          <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-amber-300">Ads & video spotlight</p>
+          <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-gray-100">Ads & video spotlight</p>
           <h3 className="font-heading text-3xl sm:text-4xl md:text-5xl">Performance creative</h3>
           <p className="text-base sm:text-lg text-gray-200 max-w-2xl">
             Vertical cutdowns, YouTube pre-roll, and social-first edits designed to keep attention and convert. From scripting to export packs, we deliver ready-to-run assets.
           </p>
           <ul className="space-y-3 text-gray-300">
             <li className="flex items-center gap-3">
-              <span className="h-1.5 w-1.5 rounded-full bg-amber-300" />
+              <span className="h-1.5 w-1.5 rounded-full bg-white" />
               Scripts, storyboards, and shot lists tailored to your offer.
             </li>
             <li className="flex items-center gap-3">
-              <span className="h-1.5 w-1.5 rounded-full bg-amber-300" />
+              <span className="h-1.5 w-1.5 rounded-full bg-white" />
               9:16, 1:1, and 16:9 exports with on-brand overlays.
             </li>
             <li className="flex items-center gap-3">
-              <span className="h-1.5 w-1.5 rounded-full bg-amber-300" />
+              <span className="h-1.5 w-1.5 rounded-full bg-white" />
               Color, sound, and motion tuned for ads, social, and web.
             </li>
           </ul>
           <div className="flex flex-wrap gap-3 sm:gap-4">
             <a
               href="#contact"
-              className="px-6 py-3 bg-amber-300 text-black font-semibold uppercase tracking-[0.12em] rounded-md shadow-[0_10px_30px_rgba(212,178,108,0.35)] w-full sm:w-auto text-center"
+              className="px-6 py-3 bg-white text-black font-semibold uppercase tracking-[0.12em] rounded-md shadow-[0_10px_30px_rgba(255,255,255,0.2)] w-full sm:w-auto text-center"
             >
               Book a shoot
             </a>

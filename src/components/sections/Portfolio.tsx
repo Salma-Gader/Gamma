@@ -45,7 +45,7 @@ export default function Portfolio() {
           className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8"
         >
           <div>
-            <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-amber-300 mb-3">Case studies</p>
+            <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-gray-100 mb-3">Case studies</p>
             <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl">Recent results</h2>
             <p className="text-gray-300 mt-3 max-w-2xl text-base sm:text-lg">
               A mix of web builds, paid media, SEO, and ecommerce growth programs—shipped with measurable impact.
@@ -73,7 +73,7 @@ export default function Portfolio() {
                 <div className="relative h-56">
                   <Image src={loc.image} alt={loc.title} fill className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/30 to-black/70" />
-                  <div className="absolute top-3 left-3 px-3 py-1 text-xs uppercase tracking-[0.2em] bg-black/60 border border-white/15 rounded-full text-amber-200">
+                  <div className="absolute top-3 left-3 px-3 py-1 text-xs uppercase tracking-[0.2em] bg-black/60 border border-white/15 rounded-full text-white">
                     {loc.tag}
                   </div>
                 </div>

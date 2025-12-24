@@ -26,7 +26,7 @@ export default function Team() {
           transition={{ duration: 0.8 }}
           className="text-center max-w-3xl mx-auto mb-12"
         >
-          <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-amber-300 mb-3">Team</p>
+          <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-gray-100 mb-3">Team</p>
           <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-4">Meet the crew</h2>
           <p className="text-base sm:text-lg text-gray-300">
             A multidisciplinary team crafting campaigns from strategy through production. We blend creative, technical, and operational rigor to ship work that performs.
@@ -48,7 +48,7 @@ export default function Team() {
               </div>
               <div className="p-5 space-y-1">
                 <p className="text-lg font-semibold text-white">{member.name}</p>
-                <p className="text-sm text-amber-200 uppercase tracking-[0.12em]">{member.role}</p>
+                <p className="text-sm text-gray-100 uppercase tracking-[0.12em]">{member.role}</p>
               </div>
             </motion.div>
           ))}

@@ -17,13 +17,13 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="max-w-5xl text-center lg:text-left"
         >
-          <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-amber-300 mb-3">About us</p>
+          <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-gray-100 mb-3">About us</p>
           <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6">Gamma Studio</h2>
           <p className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto lg:mx-0">
             Full-service marketing and production. From auditing your funnel to filming your promo to iterating landing pages, we align strategy, creative, and media buying so every touchpoint converts.
           </p>
           <div className="mt-6 flex items-center gap-3 text-sm text-gray-400">
-            <span className="h-px w-10 bg-amber-300" />
+            <span className="h-px w-10 bg-white" />
             <span>Learn more</span>
           </div>
         </motion.div>
@@ -48,7 +48,7 @@ export default function About() {
                 <p className="text-xs uppercase tracking-[0.3em] text-gray-300">Delivery</p>
                 <p className="text-xl font-semibold">Strategy + Production</p>
               </div>
-              <span className="text-amber-300 text-sm">End-to-end</span>
+              <span className="text-white text-sm">End-to-end</span>
             </div>
           </motion.div>
 
@@ -67,7 +67,7 @@ export default function About() {
                 "Design & landing pages",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3">
-                  <span className="h-2 w-2 rounded-full bg-amber-300" />
+                  <span className="h-2 w-2 rounded-full bg-white" />
                   <p className="text-sm text-white">{item}</p>
                 </div>
               ))}

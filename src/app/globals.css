@@ -6,14 +6,12 @@
   --background: #05070c;
   --foreground: #e6e7ea;
   --surface: #0a0d15;
-  --glow-amber: #d4b26c;
-  --glow-blue: #6ac8ff;
 }
 
 body {
   color: var(--foreground);
-  background: radial-gradient(circle at 20% 20%, rgba(106, 200, 255, 0.08), transparent 35%),
-    radial-gradient(circle at 80% 0%, rgba(212, 178, 108, 0.12), transparent 30%),
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.06), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.08), transparent 30%),
     var(--background);
   min-height: 100vh;
 }

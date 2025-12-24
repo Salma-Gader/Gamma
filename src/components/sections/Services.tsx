@@ -73,7 +73,7 @@ export default function Services() {
           transition={{ duration: 0.8 }}
           className="text-center mb-14"
         >
-          <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-amber-300 mb-3">Services</p>
+          <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-gray-100 mb-3">Services</p>
           <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl">Full-funnel marketing partners</h2>
         </motion.div>
 
@@ -89,9 +89,9 @@ export default function Services() {
                 whileHover={{ y: -8, scale: 1.01 }}
                 className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-black/60 p-8 shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
               >
-                <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_30%_20%,rgba(106,200,255,0.2),transparent_35%)]" />
+                <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.14),transparent_35%)]" />
                 <div className="relative space-y-5">
-                  <div className="w-14 h-14 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-amber-300">
+                  <div className="w-14 h-14 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-white">
                     <Icon className="w-7 h-7" />
                   </div>
                   <div>
@@ -99,15 +99,15 @@ export default function Services() {
                     <ul className="space-y-2 text-sm text-gray-300">
                       {service.bullets.map((b) => (
                         <li key={b} className="flex items-center gap-2">
-                          <span className="h-1.5 w-1.5 rounded-full bg-amber-300" />
+                          <span className="h-1.5 w-1.5 rounded-full bg-white" />
                           {b}
                         </li>
                       ))}
                     </ul>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-4">
-                    <span className="text-sm uppercase tracking-[0.14em] text-amber-200">{service.action}</span>
-                    <button className="px-4 py-2 uppercase tracking-[0.1em] text-sm border border-white/20 text-white rounded-md hover:border-amber-300 hover:text-amber-200 transition-colors w-full sm:w-auto">
+                    <span className="text-sm uppercase tracking-[0.14em] text-gray-100">{service.action}</span>
+                    <button className="px-4 py-2 uppercase tracking-[0.1em] text-sm border border-white/20 text-white rounded-md hover:border-white hover:text-white transition-colors w-full sm:w-auto">
                       Details
                     </button>
                   </div>
@@ -119,13 +119,13 @@ export default function Services() {
 
         <div className="mt-12 flex flex-wrap gap-3 text-xs uppercase tracking-[0.2em] text-gray-400">
           <span className="px-3 py-1 border border-white/10 rounded-full flex items-center gap-2">
-            <PlayCircle className="w-4 h-4 text-amber-300" /> Cinematics
+            <PlayCircle className="w-4 h-4 text-white" /> Cinematics
           </span>
           <span className="px-3 py-1 border border-white/10 rounded-full flex items-center gap-2">
-            <Headphones className="w-4 h-4 text-amber-300" /> 3D Audio
+            <Headphones className="w-4 h-4 text-white" /> 3D Audio
           </span>
           <span className="px-3 py-1 border border-white/10 rounded-full flex items-center gap-2">
-            <Radar className="w-4 h-4 text-amber-300" /> Live events
+            <Radar className="w-4 h-4 text-white" /> Live events
           </span>
         </div>
       </div>
