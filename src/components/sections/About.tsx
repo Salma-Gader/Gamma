@@ -62,7 +62,7 @@ export default function About() {
                 delay: 0.4,
                 ease: [0.25, 0.1, 0.25, 1],
               }}
-              className="absolute -bottom-6 right-0 md:-right-8 bg-[#0a0c12] border border-white/[0.07] p-6 min-w-[160px]"
+              className="absolute -bottom-6 right-0 lg:-right-8 bg-[#0a0c12] border border-white/[0.07] p-6 min-w-[160px]"
               aria-label="12 years of creative excellence"
             >
               <p className="font-heading text-4xl text-white leading-none">

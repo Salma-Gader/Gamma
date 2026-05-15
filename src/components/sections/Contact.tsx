@@ -40,7 +40,7 @@ export default function Contact() {
       id="contact"
       ref={ref}
       aria-label="Contact Gamma Studio"
-      className="bg-[#050709] section-pad"
+      className="bg-[#050709] section-pad overflow-hidden"
     >
       <div className="inner">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] gap-16 xl:gap-24">

@@ -86,13 +86,13 @@ export default function Navbar() {
                 }
                 aria-expanded={isMobileMenuOpen}
                 aria-controls="mobile-menu"
-                className="md:hidden p-2 text-white/60 hover:text-white transition-colors duration-300"
+                className="md:hidden p-2 text-white hover:text-white/70 transition-colors duration-300"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
                 {isMobileMenuOpen ? (
-                  <X className="w-6 h-6" strokeWidth={1.25} />
+                  <X className="w-7 h-7" strokeWidth={1.5} />
                 ) : (
-                  <Menu className="w-6 h-6" strokeWidth={1.25} />
+                  <Menu className="w-7 h-7" strokeWidth={1.5} />
                 )}
               </button>
             </div>

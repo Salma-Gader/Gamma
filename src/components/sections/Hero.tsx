@@ -27,7 +27,7 @@ export default function Hero() {
     <section
       id="home"
       aria-label="Hero — Gamma Studio premium photography and creative agency"
-      className="relative h-screen min-h-[640px] w-full flex items-end overflow-hidden bg-black grain"
+      className="relative h-screen min-h-[640px] w-full flex items-center md:items-end overflow-hidden bg-black grain"
     >
       {/* Background video — fixed in place, no parallax */}
       <div className="absolute inset-0 w-full h-full">
@@ -52,7 +52,7 @@ export default function Hero() {
       </div>
 
       {/* Content — bottom-left cinematic */}
-      <div className="relative z-10 w-full inner pb-20 md:pb-28 lg:pb-32">
+      <div className="relative z-10 w-full inner pt-24 pb-10 md:pt-0 md:pb-28 lg:pb-32">
         <div className="max-w-4xl">
           <motion.p
             initial={{ opacity: 0, y: 18 }}
@@ -113,7 +113,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2, delay: 1.8 }}
-        className="absolute bottom-8 right-8 md:right-14 flex flex-col items-center gap-3 text-white/25"
+        className="absolute bottom-8 right-8 md:right-14 hidden sm:flex flex-col items-center gap-3 text-white/25"
         aria-hidden="true"
       >
         <motion.div
