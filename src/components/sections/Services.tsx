@@ -2,134 +2,138 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import {
-  ShoppingBag,
-  Palette,
-  Search,
-  Video,
-  Share2,
-  Laptop,
-  Workflow,
-  PlayCircle,
-  Headphones,
-  Radar,
-} from "lucide-react";
+import { Camera, Film, Palette, LayoutTemplate, Globe, Star } from "lucide-react";
 
 const services = [
   {
-    icon: ShoppingBag,
-    title: "Ecommerce Marketing",
-    bullets: ["Acquisition funnels", "Email & retention", "Conversion CRO"],
-    action: "Grow revenue",
+    icon: Camera,
+    number: "01",
+    title: "Brand Photography",
+    description:
+      "Cinematic portraits, product photography, and editorial campaigns that position your brand as a category leader.",
+  },
+  {
+    icon: Film,
+    number: "02",
+    title: "Video Production",
+    description:
+      "From brand films to social reels — scripted, shot, and edited to stop the scroll and drive action.",
   },
   {
     icon: Palette,
-    title: "Branding & Web",
-    bullets: ["Identity systems", "Photography & content", "Landing pages"],
-    action: "Get branded",
+    number: "03",
+    title: "Creative Direction",
+    description:
+      "Visual identity, mood boards, and art direction that unify every touchpoint into one cohesive aesthetic.",
   },
   {
-    icon: Search,
-    title: "SEO Marketing",
-    bullets: ["White-hat SEO", "Content sprints", "Backlink outreach"],
-    action: "Rank higher",
+    icon: LayoutTemplate,
+    number: "04",
+    title: "Campaign Design",
+    description:
+      "Full-scale marketing campaigns with cohesive visuals, copy, and strategy built to captivate and convert.",
   },
   {
-    icon: Video,
-    title: "Video Editing & Production",
-    bullets: ["Promos & explainers", "YouTube ads", "Animation & motion"],
-    action: "Ship video",
+    icon: Globe,
+    number: "05",
+    title: "Web & Digital",
+    description:
+      "High-performance websites and landing pages designed with the same premium aesthetic as your brand.",
   },
   {
-    icon: Share2,
-    title: "Social Media Management",
-    bullets: ["Content calendars", "Growth & analytics", "Paid social ads"],
-    action: "Build audience",
-  },
-  {
-    icon: Laptop,
-    title: "Website Management",
-    bullets: ["WordPress & Next.js", "Performance & uptime", "Continuous UX"],
-    action: "Keep it fresh",
-  },
-  {
-    icon: Workflow,
-    title: "Funnel Building",
-    bullets: ["High-converting flows", "Lead magnets", "Marketing automation"],
-    action: "Scale pipelines",
+    icon: Star,
+    number: "06",
+    title: "Luxury Retainer",
+    description:
+      "An embedded creative partner — monthly shoots, content libraries, and on-call production for elite brands.",
   },
 ];
 
 export default function Services() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const ref = useRef<HTMLElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="services" ref={ref} className="section-padding bg-[#05070c]">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+    <section
+      id="services"
+      ref={ref}
+      aria-label="Creative services"
+      className="bg-[#0a0c12] section-pad"
+    >
+      <div className="inner">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-14"
+          initial={{ opacity: 0, y: 28 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          className="mb-16 md:mb-20"
         >
-          <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-gray-100 mb-3">Services</p>
-          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl">Full-funnel marketing partners</h2>
+          <p className="text-[11px] uppercase tracking-[0.38em] text-white/35 mb-5">
+            Services
+          </p>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <h2 className="font-heading text-5xl sm:text-6xl md:text-7xl text-white leading-[0.88] max-w-xl">
+              What we
+              <br />
+              create
+            </h2>
+            <p className="text-white/45 max-w-sm text-base leading-relaxed">
+              A full suite of premium creative services — designed to elevate
+              brands that don&apos;t settle for ordinary.
+            </p>
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+        {/* Service grid — borderless panel layout */}
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-white/[0.06]"
+          role="list"
+          aria-label="Services list"
+        >
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 40 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -8, scale: 1.01 }}
-                className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-black/60 p-8 shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
+              <motion.article
+                key={service.number}
+                role="listitem"
+                initial={{ opacity: 0, y: 28 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.07,
+                  ease: [0.25, 0.1, 0.25, 1],
+                }}
+                className="group relative bg-[#0a0c12] p-8 md:p-10 border-b border-r border-white/[0.06] hover:bg-white/[0.025] transition-colors duration-400 cursor-default"
               >
-                <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.14),transparent_35%)]" />
-                <div className="relative space-y-5">
-                  <div className="w-14 h-14 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-white">
-                    <Icon className="w-7 h-7" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-semibold text-white mb-2">{service.title}</h3>
-                    <ul className="space-y-2 text-sm text-gray-300">
-                      {service.bullets.map((b) => (
-                        <li key={b} className="flex items-center gap-2">
-                          <span className="h-1.5 w-1.5 rounded-full bg-white" />
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-4">
-                    <span className="text-sm uppercase tracking-[0.14em] text-gray-100">{service.action}</span>
-                    <button className="px-4 py-2 uppercase tracking-[0.1em] text-sm border border-white/20 text-white rounded-md hover:border-white hover:text-white transition-colors w-full sm:w-auto">
-                      Details
-                    </button>
-                  </div>
+                {/* Number + icon row */}
+                <div className="flex items-center justify-between mb-8">
+                  <span className="text-sm uppercase tracking-[0.25em] text-white/20 font-mono tabular-nums">
+                    {service.number}
+                  </span>
+                  <Icon
+                    className="w-[18px] h-[18px] text-white/18 group-hover:text-white/45 transition-colors duration-400"
+                    strokeWidth={1.25}
+                    aria-hidden="true"
+                  />
                 </div>
-              </motion.div>
+
+                <h3 className="font-heading text-2xl sm:text-3xl text-white mb-4 leading-tight">
+                  {service.title}
+                </h3>
+                <p className="text-white/42 text-sm leading-relaxed">
+                  {service.description}
+                </p>
+
+                {/* Animated bottom line on hover */}
+                <div
+                  className="mt-8 h-px w-0 bg-white/20 group-hover:w-full transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]"
+                  aria-hidden="true"
+                />
+              </motion.article>
             );
           })}
-        </div>
-
-        <div className="mt-12 flex flex-wrap gap-3 text-xs uppercase tracking-[0.2em] text-gray-400">
-          <span className="px-3 py-1 border border-white/10 rounded-full flex items-center gap-2">
-            <PlayCircle className="w-4 h-4 text-white" /> Cinematics
-          </span>
-          <span className="px-3 py-1 border border-white/10 rounded-full flex items-center gap-2">
-            <Headphones className="w-4 h-4 text-white" /> 3D Audio
-          </span>
-          <span className="px-3 py-1 border border-white/10 rounded-full flex items-center gap-2">
-            <Radar className="w-4 h-4 text-white" /> Live events
-          </span>
         </div>
       </div>
     </section>
   );
 }
-

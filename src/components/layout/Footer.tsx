@@ -1,74 +1,104 @@
-"use client";
+const currentYear = new Date().getFullYear();
 
-import { motion } from "framer-motion";
+const footerLinks: Record<string, { label: string; href: string }[]> = {
+  Work: [
+    { label: "Photography", href: "#photography" },
+    { label: "Video", href: "#film" },
+    { label: "Campaigns", href: "#services" },
+    { label: "Branding", href: "#services" },
+  ],
+  Studio: [
+    { label: "About", href: "#about" },
+    { label: "Services", href: "#services" },
+    { label: "Contact", href: "#contact" },
+    { label: "Careers", href: "#contact" },
+  ],
+};
+
+const social = [
+  { label: "Instagram", href: "#" },
+  { label: "Behance", href: "#" },
+  { label: "LinkedIn", href: "#" },
+  { label: "Vimeo", href: "#" },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h3 className="text-2xl font-bold mb-4">Agency</h3>
-            <p className="text-gray-400">
-              We help brands grow through innovative marketing strategies.
+    <footer
+      role="contentinfo"
+      aria-label="Site footer"
+      className="bg-[#030405] border-t border-white/[0.05]"
+    >
+      {/* Multi-column top section */}
+      <div className="inner py-16 md:py-20">
+        <div className="grid grid-cols-2 md:grid-cols-[1.6fr_1fr_1fr_1fr] gap-12 md:gap-8 mb-16">
+          {/* Brand */}
+          <div className="col-span-2 md:col-span-1">
+            <p className="font-heading text-3xl tracking-[0.25em] text-white mb-4">
+              GAMMA
             </p>
-          </motion.div>
+            <p className="text-white/30 text-sm leading-relaxed max-w-[200px]">
+              Premium photography and creative studio for brands that demand
+              excellence.
+            </p>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li>
-                <a href="#about" className="hover:text-white transition-colors">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-white transition-colors">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="#portfolio" className="hover:text-white transition-colors">
-                  Portfolio
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-white transition-colors">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </motion.div>
+          {/* Link columns */}
+          {Object.entries(footerLinks).map(([category, links]) => (
+            <nav key={category} aria-label={`${category} links`}>
+              <p className="text-[10px] uppercase tracking-[0.38em] text-white/25 mb-5">
+                {category}
+              </p>
+              <ul className="space-y-3">
+                {links.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="text-white/40 text-sm hover:text-white/75 transition-colors duration-300"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ))}
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <h4 className="text-lg font-semibold mb-4">Contact</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li>Email: info@agency.com</li>
-              <li>Phone: +1 (555) 123-4567</li>
+          {/* Social */}
+          <nav aria-label="Social media links">
+            <p className="text-[10px] uppercase tracking-[0.38em] text-white/25 mb-5">
+              Social
+            </p>
+            <ul className="space-y-3">
+              {social.map((s) => (
+                <li key={s.label}>
+                  <a
+                    href={s.href}
+                    className="text-white/40 text-sm hover:text-white/75 transition-colors duration-300"
+                    rel="noopener noreferrer"
+                    aria-label={`Gamma Studio on ${s.label}`}
+                  >
+                    {s.label}
+                  </a>
+                </li>
+              ))}
             </ul>
-          </motion.div>
+          </nav>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Agency. All rights reserved.</p>
+        {/* Centered bottom legal bar */}
+        <div className="pt-8 border-t border-white/[0.05] flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-7 text-white/20 text-[10px] uppercase tracking-[0.24em]">
+          <span>© {currentYear} Gamma Studio. All Rights Reserved.</span>
+          <span className="hidden sm:block text-white/10" aria-hidden="true">·</span>
+          <a href="#" className="hover:text-white/45 transition-colors duration-300">
+            Privacy Policy
+          </a>
+          <span className="hidden sm:block text-white/10" aria-hidden="true">·</span>
+          <a href="#" className="hover:text-white/45 transition-colors duration-300">
+            Terms
+          </a>
         </div>
       </div>
     </footer>
   );
 }
-
