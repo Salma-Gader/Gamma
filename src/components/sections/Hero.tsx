@@ -1,9 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useRef } from "react";
-
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 
 const heroVideo = "/videos/heroVideo.mp4";
 
@@ -13,115 +12,132 @@ export default function Hero() {
   const ensurePlay = useCallback(() => {
     const video = videoRef.current;
     if (!video) return;
-
-    // Some browsers require explicitly setting muted property before play
     video.muted = true;
-
-    const playPromise = video.play();
-    if (playPromise && typeof playPromise.then === "function") {
-      playPromise.catch(() => {
-        /* ignore autoplay block; user interaction will start it */
-      });
-    }
+    const p = video.play();
+    if (p?.catch) p.catch(() => {});
   }, []);
 
   useEffect(() => {
     ensurePlay();
-    const handleClick = () => ensurePlay();
-    window.addEventListener("click", handleClick, { once: true });
-    return () => window.removeEventListener("click", handleClick);
+    window.addEventListener("click", ensurePlay, { once: true });
+    return () => window.removeEventListener("click", ensurePlay);
   }, [ensurePlay]);
 
   return (
     <section
       id="home"
-      className="relative min-h-[85vh] flex items-center justify-center lg:justify-end overflow-hidden text-gray-100 bg-black"
+      aria-label="Hero — Gamma Studio premium photography and creative agency"
+      className="relative h-screen min-h-[640px] w-full flex items-end overflow-hidden bg-black grain"
     >
-      <div className="absolute inset-0 overflow-hidden" id="home-video">
+      {/* Background video — fixed in place, no parallax */}
+      <div className="absolute inset-0 w-full h-full">
         <video
           ref={videoRef}
-          className="h-full w-full object-cover"
+          className="w-full h-full object-cover"
           autoPlay
           loop
           muted
           playsInline
           onCanPlay={ensurePlay}
           onLoadedData={ensurePlay}
-          crossOrigin="anonymous"
           preload="auto"
           aria-hidden="true"
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/65 to-black" />
-      </div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.18),transparent_30%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.12),transparent_25%)]" />
-      <div className="absolute inset-0 grain pointer-events-none" />
 
-      <div className="w-full max-w-5xl ml-0 lg:ml-auto px-4 sm:px-6 lg:px-12 pt-24 pb-14 md:pt-28 relative z-10">
-        <div className="max-w-5xl space-y-8 text-center lg:text-left">
-          <div className="space-y-3">
-            <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-gray-300">Gamma marketing collective</p>
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="font-heading text-4xl sm:text-6xl md:text-7xl xl:text-8xl leading-[0.95]"
-            >
-              Grow online sales
-              <br />
-              <span className="text-white drop-shadow-[0_8px_30px_rgba(255,255,255,0.28)]">
-                Scale your business by 500%+
-              </span>
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-base sm:text-lg md:text-xl text-gray-200 max-w-2xl mx-auto lg:mx-0"
-            >
-              Let us design the funnel, ads, content, and onsite experience that turn browsers into buyers. Ecommerce, SEO, paid social, video, and web — all under one roof.
-            </motion.p>
-          </div>
+        {/* Gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-transparent to-transparent" />
+      </div>
+
+      {/* Content — bottom-left cinematic */}
+      <div className="relative z-10 w-full inner pb-20 md:pb-28 lg:pb-32">
+        <div className="max-w-4xl">
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="text-[11px] uppercase tracking-[0.45em] text-white/40 mb-6"
+          >
+            Gamma Studio — Visual Storytelling
+          </motion.p>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 42 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="font-heading text-6xl sm:text-7xl md:text-[5.5rem] xl:text-[clamp(5rem,10vw,9rem)] leading-[0.87] text-white mb-8"
+          >
+            We craft
+            <br />
+            <em className="not-italic text-white/45">cinematic</em>
+            <br />
+            narratives
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.75, ease: [0.16, 1, 0.3, 1] }}
+            className="text-base sm:text-lg text-white/55 max-w-lg mb-12 leading-relaxed"
+          >
+            Premium photography, cinematic video, and visual campaigns for
+            brands that demand excellence.
+          </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.35 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            transition={{ duration: 0.9, delay: 0.95, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col sm:flex-row gap-4"
           >
-            <motion.a
-              href="#services"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.96 }}
-              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-white via-gray-100 to-gray-300 text-black font-semibold uppercase tracking-[0.12em] rounded-md shadow-[0_15px_45px_rgba(255,255,255,0.18)] w-full sm:w-auto"
+            <a
+              href="#photography"
+              className="inline-flex items-center justify-center px-9 py-4 bg-white text-black text-[12px] font-semibold uppercase tracking-[0.22em] hover:bg-white/88 transition-colors duration-350 w-full sm:w-auto"
             >
-              Our services
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </motion.a>
-            <motion.a
+              View our work
+            </a>
+            <a
               href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.96 }}
-              className="inline-flex items-center justify-center px-8 py-4 border border-white/30 text-white font-semibold uppercase tracking-[0.12em] rounded-md backdrop-blur w-full sm:w-auto"
+              className="inline-flex items-center justify-center px-9 py-4 border border-white/22 text-white text-[12px] font-semibold uppercase tracking-[0.22em] hover:border-white/55 hover:bg-white/[0.05] transition-all duration-350 w-full sm:w-auto"
             >
-              Send a quote
-            </motion.a>
+              Book a session
+            </a>
           </motion.div>
-
-          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 pt-6">
-            <div className="h-px w-20 sm:w-16 bg-gradient-to-r from-white to-transparent" />
-            <div className="flex flex-wrap justify-center sm:justify-start gap-3 text-[11px] sm:text-xs uppercase tracking-[0.2em] text-gray-300">
-              <span>Google Ads</span>
-              <span>SEO</span>
-              <span>Social Media</span>
-              <span>Video</span>
-            </div>
-          </div>
         </div>
+      </div>
+
+      {/* Animated scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2, delay: 1.8 }}
+        className="absolute bottom-8 right-8 md:right-14 flex flex-col items-center gap-3 text-white/25"
+        aria-hidden="true"
+      >
+        <motion.div
+          animate={{ y: [0, 7, 0] }}
+          transition={{ repeat: Infinity, duration: 2.4, ease: "easeInOut" }}
+        >
+          <ArrowDown className="w-4 h-4" strokeWidth={1} />
+        </motion.div>
+        <span className="text-xs uppercase tracking-[0.35em] [writing-mode:vertical-lr]">
+          Scroll
+        </span>
+      </motion.div>
+
+      {/* Vertical side label — desktop only */}
+      <div
+        className="absolute right-8 md:right-14 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-5"
+        aria-hidden="true"
+      >
+        <div className="h-14 w-px bg-gradient-to-b from-transparent via-white/18 to-transparent" />
+        <span className="text-xs uppercase tracking-[0.35em] text-white/25 [writing-mode:vertical-lr]">
+          Photography &amp; Film
+        </span>
+        <div className="h-14 w-px bg-gradient-to-b from-transparent via-white/18 to-transparent" />
       </div>
     </section>
   );
 }
-
